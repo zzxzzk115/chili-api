@@ -1,6 +1,23 @@
 # chili-api
 吃力网 API，基于 Node.js + Axios + Cheerio + Selenium 的 API 服务器，爬取吃力网的搜索内容。
 
+首次请求会通过 Selenium 缓存真实目标网址，比较耗时，后面就不耗时了。
+
+## API 请求格式
+
+仅支持 `GET` 请求:
+
+参数：
+|名称|解释|类型|
+|---|---|---|
+|q|查询的关键字|string|
+|page|页码|int|
+|type|响应类型，可选的值有 text/json/markdown |string|
+
+样例请求：
+
+`http://localhost:3000/?q=星际穿越&page=1&type=text`
+
 ## Docker-Compose 运行（推荐，配置简单，可用于 NAS）
 ```bash
 services:
